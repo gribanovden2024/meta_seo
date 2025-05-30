@@ -1,3 +1,8 @@
+## [3.0.10] - 2025/05/30
+
+* Update the documentaion.
+* Added Yandex support and title meta tag.
+
 ## [3.0.9] - 2024/02/13
 
 * Update the documentation.

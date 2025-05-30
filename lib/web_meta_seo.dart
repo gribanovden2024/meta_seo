@@ -9,7 +9,7 @@ class WebMetaSEO implements MetaSEO {
   /// Definition of [WebMetaSEO] instance
   WebMetaSEO();
 
-  /// Add web seo mata config method which remove any javascript
+  /// Add web seo meta config method which remove any javascript
   /// code with the same id [metaSEOScripts] and replace if exists with
   /// needed one before the end of the body of the html web file automatically.
   /// This method should be run before any meta seo method to run the package correctly
@@ -89,7 +89,7 @@ class WebMetaSEO implements MetaSEO {
   /// If you do not found meta name you want just use metaName
   /// Definition of [content] meta tag attribute
   /// The value is used for other named meta not listed in attributes by metaNameContent
-  /// Add web mata data of other meta named with content
+  /// Add web meta data of other meta named with content
   /// Implement the interface
   @override
   nameContent(
@@ -107,7 +107,7 @@ class WebMetaSEO implements MetaSEO {
   /// If you do not found meta property you want just use metaProperty
   /// Definition of [content] meta tag attribute
   /// The value is used for other property meta not listed in attributes by metaPropertyContent
-  /// Add web mata data of other meta property with content
+  /// Add web meta data of other meta property with content
   /// Implement the interface
   @override
   propertyContent(
@@ -125,7 +125,7 @@ class WebMetaSEO implements MetaSEO {
   /// If you do not found meta key you want just use metaKey
   /// Definition of [value] meta tag attribute
   /// The value is used for other key-value meta not listed in attributes by metaValue
-  /// Add web mata data of other meta key with value
+  /// Add web meta data of other meta key with value
   /// Implement the interface
   @override
   keyValue(
@@ -141,7 +141,7 @@ class WebMetaSEO implements MetaSEO {
 
   /// Definition of [author] meta tag attribute
   /// https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#adding_an_author_and_description
-  /// Add web mata data of [author] attribute
+  /// Add web meta data of [author] attribute
   /// Example: String? author = 'Eng Mouaz M AlShahmeh';
   /// Implement the interface
   @override
@@ -155,8 +155,8 @@ class WebMetaSEO implements MetaSEO {
 
   /// Definition of [description] meta tag attribute
   /// https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#adding_an_author_and_description
-  /// Add web mata data of [description] attribute
-  /// Example: String? description = 'Simple SEO description mata data';
+  /// Add web meta data of [description] attribute
+  /// Example: String? description = 'Simple SEO description meta data';
   /// Implement the interface
   @override
   description(
@@ -169,7 +169,7 @@ class WebMetaSEO implements MetaSEO {
 
   /// Definition of [keywords] meta tag attribute
   /// Separate list of keyword strings by commas
-  /// Add web mata data of [keywords] attribute
+  /// Add web meta data of [keywords] attribute
   /// Example: String? keywords = 'Flutter, Dart, Simple SEO';
   /// Implement the interface
   @override
@@ -184,7 +184,7 @@ class WebMetaSEO implements MetaSEO {
   /// Definition of [viewport] meta tag attribute
   /// Separate list of viewport strings by commas
   /// https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag
-  /// Add web mata data of [viewport] attribute
+  /// Add web meta data of [viewport] attribute
   /// Example: String? viewport = 'width=device-width, initial-scale=1';
   /// Implement the interface
   @override
@@ -198,7 +198,7 @@ class WebMetaSEO implements MetaSEO {
 
   /// Definition of [http-equiv] meta tag attribute
   /// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-http-equiv
-  /// Add web mata data of [httpEquiv] attribute
+  /// Add web meta data of [httpEquiv] attribute
   /// Example: String? httpEquiv = 'X-UA-Compatible';
   /// Implement the interface
   @override
@@ -212,7 +212,7 @@ class WebMetaSEO implements MetaSEO {
 
   /// Definition of [charset] meta tag attribute
   /// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset
-  /// Add web mata data of [charset] attribute
+  /// Add web meta data of [charset] attribute
   /// Example: String? charset = 'UTF-8';
   /// Implement the interface
   @override
@@ -226,7 +226,7 @@ class WebMetaSEO implements MetaSEO {
 
   /// Definition of [fb:app_id] meta tag attribute
   /// https://developers.facebook.com/docs/sharing/webmasters/
-  /// Add web mata data of [facebookAppID] attribute
+  /// Add web meta data of [facebookAppID] attribute
   /// Implement the interface
   @override
   facebookAppID(
@@ -237,10 +237,23 @@ class WebMetaSEO implements MetaSEO {
     js.context.callMethod('seoPropertyJS', ['fb:app_id', facebookAppID]);
   }
 
+  /// Definition of [title] meta tag attribute
+  /// Sets the page title that appears in browser tabs and bookmarks
+  /// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
+  /// Add web meta data of [title] attribute
+  @override
+  title(
+      {
+      /// Definition of [title] meta tag attribute
+      required String title}) {
+    /// Call the javascript function to set the document title
+    js.context.callMethod('eval', ['document.title = "$title"']);
+  }
+
   /// Definition of [og:title] meta tag attribute
   /// https://ogp.me
   /// https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#other_types_of_metadata
-  /// Add web mata data of [ogTitle] attribute
+  /// Add web meta data of [ogTitle] attribute
   /// Implement the interface
   @override
   ogTitle(
@@ -254,7 +267,7 @@ class WebMetaSEO implements MetaSEO {
   /// Definition of [og:description] meta tag attribute
   /// https://ogp.me
   /// https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#other_types_of_metadata
-  /// Add web mata data of [ogDescription] attribute
+  /// Add web meta data of [ogDescription] attribute
   /// Implement the interface
   @override
   ogDescription(
@@ -268,7 +281,7 @@ class WebMetaSEO implements MetaSEO {
   /// Definition of [og:image] meta tag attribute
   /// https://ogp.me
   /// https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#other_types_of_metadata
-  /// Add web mata data of [ogImage] attribute
+  /// Add web meta data of [ogImage] attribute
   /// Implement the interface
   @override
   ogImage(
@@ -281,7 +294,7 @@ class WebMetaSEO implements MetaSEO {
 
   /// Definition of [twitter:card] meta tag attribute
   /// https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started
-  /// Add web mata data of [twitterCard] attribute
+  /// Add web meta data of [twitterCard] attribute
   /// Implement the interface
   @override
   twitterCard(
@@ -331,7 +344,7 @@ class WebMetaSEO implements MetaSEO {
 
   /// Definition of [twitter:title] meta tag attribute
   /// https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
-  /// Add web mata data of [twitterTitle] attribute
+  /// Add web meta data of [twitterTitle] attribute
   /// Implement the interface
   @override
   twitterTitle(
@@ -344,7 +357,7 @@ class WebMetaSEO implements MetaSEO {
 
   /// Definition of [twitter:description] meta tag attribute
   /// https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
-  /// Add web mata data of [twitterDescription] attribute
+  /// Add web meta data of [twitterDescription] attribute
   /// Implement the interface
   @override
   twitterDescription(
@@ -358,7 +371,7 @@ class WebMetaSEO implements MetaSEO {
 
   /// Definition of [twitter:image] meta tag attribute
   /// https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
-  /// Add web mata data of [twitterImage] attribute
+  /// Add web meta data of [twitterImage] attribute
   /// Implement the interface
   @override
   twitterImage(
@@ -372,8 +385,8 @@ class WebMetaSEO implements MetaSEO {
   /// Definition of [robotsName] meta tag attribute
   /// Definition of [content] meta tag attribute
   /// https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
-  /// Add web mata data of [robotsName] attribute
-  /// Add web mata data of [content] attribute
+  /// Add web meta data of [robotsName] attribute
+  /// Add web meta data of [content] attribute
   /// Implement the interface
   @override
   robots(
@@ -427,6 +440,15 @@ class WebMetaSEO implements MetaSEO {
 
         /// Call the javascript function with robots attribute
         js.context.callMethod('seoRobotsJS', ['robots', content]);
+
+        /// Break the switch loop if done
+        break;
+
+      /// If the case is yandex then run the following
+      case RobotsName.yandex:
+
+        /// Call the javascript function with yandex attribute
+        js.context.callMethod('seoRobotsJS', ['yandex', content]);
 
         /// Break the switch loop if done
         break;
