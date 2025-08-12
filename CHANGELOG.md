@@ -1,3 +1,7 @@
+## [3.0.11] - 2025/08/12
+
+* SeoUtils added.
+
 ## [3.0.10] - 2025/05/30
 
 * Update the documentaion.
