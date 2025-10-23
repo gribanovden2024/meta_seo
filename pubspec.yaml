@@ -1,7 +1,7 @@
 # Developed by Eng Mouaz M AlShahmeh
 name: meta_seo
 description: Meta SEO is package for adding meta data for html document in head tag which meta tags or meta data make search engine optimization for web apps.
-version: 3.1.0
+version: 3.0.11
 repository: https://github.com/Eng-Mouaz-M-AlShahmeh/meta_seo
 issue_tracker: https://github.com/Eng-Mouaz-M-AlShahmeh/meta_seo/issues
 topics: [meta-seo, seo]
@@ -11,7 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
   html_character_entities:
-  web:
 dev_dependencies:
   flutter_test:
     sdk: flutter
