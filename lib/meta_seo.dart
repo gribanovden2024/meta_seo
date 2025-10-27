@@ -3,6 +3,7 @@
 /// MetaSEO package
 /// Define our [MetaSEO] library
 library meta_seo;
+import 'package:meta_seo/schema_org/src/schema_serializable.dart';
 
 /// Import the implementation if the platform is web
 import 'meta_seo_locator.dart' if (dart.library.html) "web_meta_seo.dart";
@@ -256,6 +257,11 @@ abstract class MetaSEO {
 
       /// Definition of [content] meta tag attribute
       required String content});
+
+  schemaOrg(
+      {
+        required SchemaSerializable schema});
+
 
   /// Check the platform if is web so get the correct code
   factory MetaSEO() => getPlatformMeta();
