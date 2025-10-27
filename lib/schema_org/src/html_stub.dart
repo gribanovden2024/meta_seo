@@ -4,7 +4,7 @@ final document = Document();
 /// Holds a dummy reference to the script element
 class HtmlElement {
   String type = '';
-  String innerHtml = '';
+  String innerText = '';
   void append(HtmlElement script) {}
 }
 
@@ -14,4 +14,4 @@ class Document {
 }
 
 /// Dummy class for the script element
-class ScriptElement extends HtmlElement {}
+class HTMLScriptElement extends HtmlElement {}
