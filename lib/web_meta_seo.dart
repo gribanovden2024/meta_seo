@@ -15,7 +15,7 @@ class WebMetaSEO implements MetaSEO {
   /// This method should be run before any meta seo method to run the package correctly
   /// Implement the interface
   @override
-  config() {
+  config({bool canonicalTeg = true}) {
     /// Define the ScriptElement
     HTMLScriptElement script = HTMLScriptElement();
 
@@ -66,6 +66,15 @@ class WebMetaSEO implements MetaSEO {
     meta.setAttribute('content', content);
     document.getElementsByTagName('head')[0].appendChild(meta);
   }
+  function seoCanonicalJS(url) {
+    if(document.querySelector("link[rel='canonical']") !== null) {
+      document.querySelector("link[rel='canonical']").remove();
+    }
+    var link = document.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    link.setAttribute('href', url);
+    document.getElementsByTagName('head')[0].appendChild(link);
+  }
     """;
 
     /// Make loop in html file body to check of any node with the same id
@@ -83,6 +92,12 @@ class WebMetaSEO implements MetaSEO {
     /// Add new or replace the javascript needed functions to the end
     /// of the body of the html document
     document.body!.insertAdjacentElement('beforeEnd', script);
+
+    /// Add canonical tag automatically
+    if (canonicalTeg) {
+      final canonicalUrl = window.location.href.replaceAll(RegExp(r'#.*$'), '');
+      canonical(url: canonicalUrl);
+    }
   }
 
   /// Definition of [name] meta tag attribute
@@ -455,6 +470,13 @@ class WebMetaSEO implements MetaSEO {
   @override
   schemaOrg({required SchemaSerializable schema}) {
     SchemaOrg.writeJsonLd(schema);
+  }
+  @override
+  canonical({required String url}) {
+    js.globalContext.callMethod(
+      'seoCanonicalJS'.toJS,
+      url.toJS,
+    );
   }
 }
 
