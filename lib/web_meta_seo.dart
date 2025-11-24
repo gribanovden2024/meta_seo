@@ -95,8 +95,16 @@ class WebMetaSEO implements MetaSEO {
 
     /// Add canonical tag automatically
     if (canonicalTeg) {
-      final canonicalUrl = window.location.href.replaceAll(RegExp(r'#.*$'), '');
-      canonical(url: canonicalUrl);
+      final uri = Uri.parse(window.location.href);
+
+      final canonicalUri = Uri(
+        scheme: uri.scheme,
+        host: uri.host,
+        port: uri.hasPort ? uri.port : null,
+        path: uri.path, // Берём только path
+        // ❌ никаких query и fragment не добавляем
+      );
+      canonical(url: canonicalUri.toString());
     }
   }
 
