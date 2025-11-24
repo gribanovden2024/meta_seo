@@ -10,4 +10,5 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  html_character_entities:
   web:
