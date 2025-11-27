@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:meta_seo/schema_org/src/schema_serializable.dart';
 
-import 'html_stub.dart' if (dart.library.html) 'package:web/web.dart';
+import 'html_stub.dart' if (dart.library.js_interop) 'package:web/web.dart';
 
 /// Helper class to write JSON-LD to HTML document
 class SchemaOrg {
