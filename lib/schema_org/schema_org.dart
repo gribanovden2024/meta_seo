@@ -4,5 +4,4 @@
 /// type unions, allowing for easy completions and stricter validation.
 library schema_org;
 
-export 'src/html_writer.dart' show SchemaOrg;
 export 'schemas.dart';

@@ -1,8 +1,8 @@
 import 'dart:js_interop_unsafe';
 import 'dart:js_interop' as js;
+import 'package:meta_seo/schema_org/schema_org.dart';
 import 'package:web/web.dart';
 import 'package:meta_seo/meta_seo.dart';
-import 'package:meta_seo/schema_org/schema_org.dart';
 
 /// Code starts here
 class WebMetaSEO implements MetaSEO {
