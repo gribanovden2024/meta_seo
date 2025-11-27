@@ -7,7 +7,7 @@ library meta_seo;
 import 'package:meta_seo/schema_org/src/schema_serializable.dart';
 
 /// Import the implementation if the platform is web
-import 'meta_seo_locator.dart' if (dart.library.html) "web_meta_seo.dart";
+import 'meta_seo_locator.dart' if (dart.library.js_interop) "web_meta_seo.dart";
 
 /// Define enum options for Twitter Card
 /// Only one card type per-page is supported.
