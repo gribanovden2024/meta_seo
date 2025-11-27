@@ -75,6 +75,32 @@ class WebMetaSEO implements MetaSEO {
     link.setAttribute('href', url);
     document.getElementsByTagName('head')[0].appendChild(link);
   }
+  function seoJsonLd(json) {
+    const type = json && json['@type'];
+  
+    const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    let target = null;
+  
+    for (const s of scripts) {
+      try {
+        const parsed = JSON.parse(s.innerText);
+        if (parsed['@type'] === type) {
+          target = s;
+          break;
+        }
+      } catch (_) {}
+    }
+  
+    if (target) {
+      target.innerHTML = JSON.stringify(json, null, 2);
+      return;
+    }
+  
+    const script = document.createElement('script');
+    script.setAttribute('type', 'application/ld+json');
+    script.innerHTML = JSON.stringify(json, null, 2);
+    document.head.appendChild(script);
+  }
     """;
 
     /// Make loop in html file body to check of any node with the same id
@@ -477,7 +503,12 @@ class WebMetaSEO implements MetaSEO {
 
   @override
   schemaOrg({required SchemaSerializable schema}) {
-    SchemaOrg.writeJsonLd(schema);
+    final Map<String, dynamic> json = schema.toJsonLd();
+
+    js.globalContext.callMethod(
+      'seoJsonLd'.toJS,
+      json.jsify(),
+    );
   }
   @override
   canonical({required String url}) {
