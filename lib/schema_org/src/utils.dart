@@ -33,7 +33,6 @@ dynamic convertToJsonLd(dynamic val, [List<Type> types = const []]) {
       return val.toJson();
     }
   }
-
   throw UnsupportedTypeException(val.runtimeType);
 }
 
