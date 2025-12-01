@@ -1,3 +1,5 @@
+import 'package:meta_seo/schema_org/src/schema_serializable.dart';
+
 import 'exceptions.dart';
 
 /// Converts a dynamic value to JSON
@@ -25,6 +27,9 @@ dynamic convertToJsonLd(dynamic val, [List<Type> types = const []]) {
   // object is one of the expected types.
   for (Type type in types) {
     if (val.runtimeType == type) {
+      if (val is SchemaSerializable) {
+        return val.toJsonLd();
+      }
       return val.toJson();
     }
   }
